@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-signin-client_id"
+	content="661163065311-rkk87vbqm3j5uq9e7aonea3cp74b2igj.apps.googleusercontent.com">
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<link rel="stylesheet" href="./css/login.css">
+<title>PUPcare</title>
+<link rel="icon" href="img/logo1.jpg" type="image/x-icon">
+<script type="text/javascript">
+	function validate() {
+
+		var email_valid = /^[\w\d\.]+\@[a-zA-Z\.]+\.[A-Za-z]{1,4}$/;
+		var password_valid = /^[a-zA-Z0-9!@#$%^&*]{6,12}$/;
+
+		var email = document.getElementById("email");/*  */
+		var password = document.getElementById("password");
+
+		if (!email_valid.test(email.value) || email.value == "") {
+			alert("Enter valid Email..!");
+			email.focus();
+			return false;
+		}
+
+		if (!password_valid.test(password.value) || password.value == "") {
+			alert("Password must be 6 to 12 and allowed character are !@#$%&*()<> ");
+			password.focus();
+			return false;
+		}
+
+	}
+</script>
+
+<style>
+a.one:link {
+	color: #ff0000;
+}
+
+a.one:visited {
+	color: #0000ff;
+}
+
+a.one:hover {
+	color: black;
+}
+
+body {
+	height: 1000px;
+	background: linear-gradient(to bottom, #B1FCF7 0%, #965EB8 100%);
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.login {
+	background: linear-gradient(to bottom, white 0%, #B1FCF7 100%);
+	margin: auto;
+	width: 60%;
+	padding: 10px;
+	width: 60%;
+	border-bottom: 5px solid black;
+	border-right: 5px solid black;
+	border-left: 5px solid #B1FCF7;
+	border-top: 5px solid #B1FCF7;
+}
+</style>
+
+</head>
+<body>
+	<center>
+		<div
+			style="font-size: 100px; padding-top: 100px; height: 200px; line-height: 0.3;">
+			<b style="color: #ff6037; padding-top: 20px;">PUP<span
+				style="color: black; padding-top: 20px;">care</span></b><br> <span
+				style="font-size: 20px; color: black; text-align: center;">every
+				puppy should have a soul</span>
+
+		</div>
+
+	</center>
+	<div class="container">
+
+
+		<br>
+		<div class="login"
+			style="border-width: 5px; width: 400px; height: 300px;">
+			<center>
+
+				<br>
+				<form action="LoginServlet" method="post" name="form2"
+					onsubmit="return validate()"
+					style="background-attachment: fixed; background-size: cover;">
+					<label class="logininfo"
+						style="font-size: large; padding-left: 37px; font-family: Arial; color: black;"><b>Email
+							:</b> </label> <input type="text" placeholder="enter your email" name="user"
+						id="email"
+						style="border: 3px solid #ff6037; background-color: black; color: white;"><br>
+					<label class="logininfo"
+						style="font-size: large; font-family: Arial; color: black;"><b>Password
+							:</b> </label> <input type="password" placeholder="enter password"
+						id="password" name="password"
+						style="border: 3px solid #ff6037; background-color: black; color: white;"><br>
+					<br> <input type="hidden" id="id" name="id"> <input
+						type="checkbox" onclick="myFunction()"
+						style="width: 20px; height: 20px;"><label
+						style="font-size: large;; font-family: Arial; color: black; text-align: left;"><b>Show
+							Password</b></label>
+
+					<script>
+						function myFunction() {
+							var x = document.getElementById("password");
+							if (x.type === "password") {
+								x.type = "text";
+							} else {
+								x.type = "password";
+							}
+						}
+					</script>
+					<br> <br> <input type="submit" value="LOGIN">
+				</form>
+				<br>
+
+				<div class="g-signin2" data-onsuccess="onSignIn"
+					style="margin: auto; width: 125px;"border-radius: 2px;	font-weight: 800;
+					></div>
+				<br> <a class="one" href="email_registration.jsp"
+					style="font-weight: 550; font-size: 15px;">Are you new to
+					PUPcare? signup here</a>
+		</div>
+
+	</div>
+</body>
+</html>
